@@ -1,1 +1,21 @@
-<h2>Upload PDF for Signing</h2>
+<div class="content">
+    <h2>Upload PDF for Signing</h2>
+
+    <button type="button" (click)="fileInput.click()">Upload PDF</button>
+    <input 
+        type="file" 
+        accept="application/pdf" 
+        #fileInput 
+        (change)="onFileSelected($event)" 
+        style="display: none;">
+
+    <div *ngIf="toast" class="toast" [ngClass]="toast.type">
+        <div class="icon">
+            <span *ngIf="toast.type === 'success'">✅</span>
+            <span *ngIf="toast.type === 'error'">❌</span>
+        </div>
+        <h1 class="title">{{ toast.title }}</h1>
+        <div class="content">{{ toast.content }}</div>
+    </div>
+
+</div>
